@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="1" passed="1" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2021-02-26T18:14:38Z" name="Default suite" finished-at="2021-02-26T18:15:15Z" duration-ms="37652">
+    <groups>
+    </groups>
+    <test started-at="2021-02-26T18:14:38Z" name="Default test" finished-at="2021-02-26T18:15:15Z" duration-ms="37652">
+      <class name="qa.TestScript.TrivagoTest">
+        <test-method is-config="true" signature="beforeSuite()[pri:0, instance:qa.TestScript.TrivagoTest@6cc558c6]" started-at="2021-02-26T18:14:37Z" name="beforeSuite" finished-at="2021-02-26T18:14:38Z" duration-ms="541" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeSuite -->
+        <test-method is-config="true" signature="beforeTest()[pri:0, instance:qa.TestScript.TrivagoTest@6cc558c6]" started-at="2021-02-26T18:14:38Z" name="beforeTest" finished-at="2021-02-26T18:14:38Z" duration-ms="1" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeTest -->
+        <test-method is-config="true" signature="beforeClass()[pri:0, instance:qa.TestScript.TrivagoTest@6cc558c6]" started-at="2021-02-26T18:14:38Z" name="beforeClass" finished-at="2021-02-26T18:14:38Z" duration-ms="2" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeClass -->
+        <test-method is-config="true" signature="beforeMethod()[pri:0, instance:qa.TestScript.TrivagoTest@6cc558c6]" started-at="2021-02-26T18:14:38Z" name="beforeMethod" finished-at="2021-02-26T18:15:12Z" duration-ms="34662" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- beforeMethod -->
+        <test-method signature="Test01Trivago()[pri:0, instance:qa.TestScript.TrivagoTest@6cc558c6]" started-at="2021-02-26T18:15:12Z" name="Test01Trivago" finished-at="2021-02-26T18:15:15Z" duration-ms="2824" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- Test01Trivago -->
+        <test-method is-config="true" signature="afterMethod()[pri:0, instance:qa.TestScript.TrivagoTest@6cc558c6]" started-at="2021-02-26T18:15:15Z" name="afterMethod" finished-at="2021-02-26T18:15:15Z" duration-ms="134" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterMethod -->
+        <test-method is-config="true" signature="afterSuite()[pri:0, instance:qa.TestScript.TrivagoTest@6cc558c6]" started-at="2021-02-26T18:15:15Z" name="afterSuite" finished-at="2021-02-26T18:15:16Z" duration-ms="349" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- afterSuite -->
+      </class> <!-- qa.TestScript.TrivagoTest -->
+    </test> <!-- Default test -->
+  </suite> <!-- Default suite -->
+</testng-results>

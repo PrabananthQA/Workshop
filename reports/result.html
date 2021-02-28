@@ -1,0 +1,2829 @@
+
+<!DOCTYPE html>
+<html>
+
+
+<head>
+	<meta charset='UTF-8' /> 
+	<meta name='description' content='' />
+	<meta name='robots' content='noodp, noydir' />
+	<meta name='viewport' content='width=device-width, initial-scale=1' />
+	<meta id="timeStampFormat" name="timeStampFormat" content='MMM d, yyyy hh:mm:ss a'/>
+	
+	<link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600' rel='stylesheet' type='text/css' />
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+		<link href='https://cdn.rawgit.com/anshooarora/extentreports-java/b4a58fcfd1e137bd9287244035a7c80d3d73b3af/dist/css/extent.css' type='text/css' rel='stylesheet' />
+	
+	<title>Leaftaps Automation Project</title>
+
+	<style type='text/css'>
+			
+      
+        
+      
+    
+	</style>
+</head>
+
+	<body class='extent standard default hide-overflow '>
+		<div id='theme-selector' alt='Click to toggle theme. To enable by default, use theme configuration.' title='Click to toggle theme. To enable by default, use theme configuration.'>
+			<span><i class='material-icons'>desktop_windows</i></span>
+		</div>
+
+<nav>
+	<div class="nav-wrapper">
+		<a href="#!" class="brand-logo blue darken-3">Extent</a>
+
+		<!-- slideout menu -->
+		<ul id='slide-out' class='side-nav fixed hide-on-med-and-down'>
+			<li class='waves-effect active'><a href='#!' view='test-view' onclick="configureView(0);chartsView('test');"><i class='material-icons'>dashboard</i></a></li>
+						<li class='waves-effect'><a href='#!' view='category-view' onclick="configureView(1)"><i class='material-icons'>label_outline</i></a></li>
+				<li class='waves-effect'><a href='#!' view='author-view' onclick="configureView(3)"><i class='material-icons'>person</i></a></li>
+			<li class='waves-effect'><a href='#!' onclick="configureView(-1);chartsView('dashboard');" view='dashboard-view'><i class='material-icons'>track_changes</i></i></a></li>
+		</ul>
+
+		<!-- report name -->
+		<span class='report-name'>TestLeaf Selenium</span>
+		
+		<!-- report headline -->
+		<span class='report-headline'></span>
+
+		<!-- nav-right -->
+		<ul id='nav-mobile' class='right hide-on-med-and-down nav-right'>
+			<li>
+                <a href='#!'>
+                    <span class='label suite-start-time blue darken-3'>Feb 26, 2021 11:44:37 PM</span>
+				</a>
+			</li>
+			<li>
+                <a href='#!'>
+                    <span class='label blue darken-3'>3.1.5</span>
+				</a>
+			</li>
+		</ul>
+	</div>
+</nav>
+
+		<!-- container -->
+		<div class='container'>
+
+<div id='test-view' class='view'>
+				
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- test toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button tests-toggle' data-activates='tests-toggle' data-constrainwidth='true' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>warning</i> Status
+				</a>
+				<ul id='tests-toggle' class='dropdown-content'>
+											<li status='pass'><a href='#!'>Pass <i class='material-icons green-text'>check_circle</i></a></li>
+					<li class='divider'></li>
+					<li status='clear' clear='true'><a href='#!'>Clear Filters <i class='material-icons'>clear</i></a></li>
+				</ul>
+			</div>
+			<!-- test toggle -->
+
+			<!-- category toggle -->
+			<div class='chip transparent'>
+				<a class='dropdown-button category-toggle' data-activates='category-toggle' data-constrainwidth='false' data-beloworigin='true' data-hover='true' href='#'>
+					<i class='material-icons'>local_offer</i> Category
+				</a>
+				<ul id='category-toggle' class='dropdown-content'>
+					<li><a href='#'>Testing</a></li>
+					<li class='divider'></li>
+					<li class='clear'><a href='#!' clear='true'>Clear Filters</a></li>
+				</ul>
+			</div>
+			<!-- category toggle -->
+
+			<!-- clear filters -->
+			<div class='chip transparent hide'>
+				<a class='' id='clear-filters' alt='Clear Filters' title='Clear Filters'>
+					<i class='material-icons'>close</i> Clear
+				</a>
+			</div>
+			<!-- clear filters -->
+
+			<!-- enable dashboard -->
+			<div id='toggle-test-view-charts' class='chip transparent'>
+				<a class='pink-text' id='enable-dashboard' alt='Enable Dashboard' title='Enable Dashboard'>
+					<i class='material-icons'>track_changes</i> Dashboard
+				</a>
+			</div>
+			<!-- enable dashboard -->
+
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+
+<div id='test-view-charts' class='subview-full'>
+	<div id='charts-row' class='row nm-v nm-h'>
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Tests</div>
+				<div class='chart-box'>
+					<canvas id='parent-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='20.833%'><span class='strong'>5</span> test(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='79.167%'>19</span> test(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+		<div class='col s12 m6 l6 np-h'>
+			<div class='card-panel nm-v'>
+				<div class='left panel-name'>Steps</div>
+				<div class='chart-box'>
+					<canvas id='child-analysis' width='100' height='80'></canvas>
+				</div>
+				<div class='block text-small'>
+					<span class='tooltipped' data-position='top' data-tooltip='92.937%'><span class='strong'>250</span> step(s) passed</span>
+				</div>
+				<div class='block text-small'>
+					<span class='strong tooltipped' data-position='top' data-tooltip='7.063%'>19</span> step(s) failed, <span class='strong tooltipped' data-position='top' data-tooltip='0%'>0</span> others
+				</div>
+			</div>
+		</div>
+		
+	</div>
+</div>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Tests</h5>
+			<ul id='test-collection' class='test-collection'>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='1'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 25, 2021 02:07:06 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 25, 2021 02:07:06 AM</span>
+	<span class='label end-time'>Feb 25, 2021 02:07:47 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 41s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='2'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+5ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:07:17 AM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/91380445.png" width="10%" src="./../reports/images/91380445.png" data-src="./../reports/images/91380445.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:07:18 AM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (c7e6404922ba2e1defafa0cbfebec5a4)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/189762696.png" width="10%" src="./../reports/images/189762696.png" data-src="./../reports/images/189762696.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:07:18 AM</td>
+													<td class='step-details'>The element :Agra City - Uttar Pradesh, India is clicked.</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:07:47 AM</td>
+													<td class='step-details'>The browser could not be closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='3'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 25, 2021 02:17:32 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 25, 2021 02:17:32 AM</span>
+	<span class='label end-time'>Feb 25, 2021 02:17:46 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 14s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='4'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+17ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:17:39 AM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/638145995.png" width="10%" src="./../reports/images/638145995.png" data-src="./../reports/images/638145995.png"></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:17:41 AM</td>
+													<td class='step-details'>The element: OK could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:17:46 AM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='5'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 25, 2021 02:17:59 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 25, 2021 02:17:59 AM</span>
+	<span class='label end-time'>Feb 25, 2021 02:19:05 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 1m 6s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='6'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+23ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:18:34 AM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/440950925.png" width="10%" src="./../reports/images/440950925.png" data-src="./../reports/images/440950925.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:18:34 AM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:18:35 AM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (c52b440c78a585b11aec459d916657cd)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/124077844.png" width="10%" src="./../reports/images/124077844.png" data-src="./../reports/images/124077844.png"></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:19:05 AM</td>
+													<td class='step-details'>The element with locator xpath not found.<img data-featherlight="./../reports/images/801012681.png" width="10%" src="./../reports/images/801012681.png" data-src="./../reports/images/801012681.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:19:05 AM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='7'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 25, 2021 02:23:19 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 25, 2021 02:23:19 AM</span>
+	<span class='label end-time'>Feb 25, 2021 02:24:16 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 57s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='8'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+27ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:23:55 AM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/166557797.png" width="10%" src="./../reports/images/166557797.png" data-src="./../reports/images/166557797.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:23:55 AM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:23:55 AM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (7f5996483eac78e61d754a9bae440a2a)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/72941032.png" width="10%" src="./../reports/images/72941032.png" data-src="./../reports/images/72941032.png"></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:24:16 AM</td>
+													<td class='step-details'>The browser could not be closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='9'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 25, 2021 02:28:10 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 25, 2021 02:28:10 AM</span>
+	<span class='label end-time'>Feb 25, 2021 02:29:09 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 59s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='10'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+31ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:28:33 AM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/474488290.png" width="10%" src="./../reports/images/474488290.png" data-src="./../reports/images/474488290.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:28:34 AM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:28:34 AM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (eece214cba91147abce4dbca92f61a54)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/369268514.png" width="10%" src="./../reports/images/369268514.png" data-src="./../reports/images/369268514.png"></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:29:05 AM</td>
+													<td class='step-details'>The element with locator xpath not found.<img data-featherlight="./../reports/images/415555146.png" width="10%" src="./../reports/images/415555146.png" data-src="./../reports/images/415555146.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:29:09 AM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='11'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 25, 2021 02:31:21 AM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 25, 2021 02:31:21 AM</span>
+	<span class='label end-time'>Feb 25, 2021 02:32:00 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 39s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='12'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+36ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:31:28 AM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/638999671.png" width="10%" src="./../reports/images/638999671.png" data-src="./../reports/images/638999671.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:31:29 AM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:31:29 AM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (8217e4155a3ffa741a125cf0ffcec4da)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/467231361.png" width="10%" src="./../reports/images/467231361.png" data-src="./../reports/images/467231361.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:31:29 AM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>2:32:00 AM</td>
+													<td class='step-details'>The element with locator xpath not found.<img data-featherlight="./../reports/images/39702567.png" width="10%" src="./../reports/images/39702567.png" data-src="./../reports/images/39702567.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:00 AM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='13'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 25, 2021 02:32:39 AM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 25, 2021 02:32:39 AM</span>
+	<span class='label end-time'>Feb 25, 2021 02:32:55 AM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='14'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+42ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:49 AM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/326855364.png" width="10%" src="./../reports/images/326855364.png" data-src="./../reports/images/326855364.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:49 AM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:50 AM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (a5af34b454e1e2c4b1b3891b65090e61)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/60890256.png" width="10%" src="./../reports/images/60890256.png" data-src="./../reports/images/60890256.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:50 AM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:50 AM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:50 AM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:51 AM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:51 AM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:51 AM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:51 AM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:51 AM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:51 AM</td>
+													<td class='step-details'>The element :Search is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>2:32:55 AM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='15'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 07:24:00 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 07:24:00 PM</span>
+	<span class='label end-time'>Feb 26, 2021 07:24:19 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 19s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='16'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+51ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:11 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/791596788.png" width="10%" src="./../reports/images/791596788.png" data-src="./../reports/images/791596788.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:12 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:12 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (e40d40508571565f8cf34adcbf7fd81c)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/267536975.png" width="10%" src="./../reports/images/267536975.png" data-src="./../reports/images/267536975.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:13 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:13 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:13 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:13 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:13 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:13 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:13 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:14 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:14 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:14 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:14 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:14 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>7:24:15 PM</td>
+													<td class='step-details'>The element: - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>7:24:19 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='17'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 09:49:39 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 09:49:39 PM</span>
+	<span class='label end-time'>Feb 26, 2021 09:50:20 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 41s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='18'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+60ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:16 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/596109994.png" width="10%" src="./../reports/images/596109994.png" data-src="./../reports/images/596109994.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:16 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:17 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (ae41a1ba2bc4e2e72e54d4b530e78449)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/307907344.png" width="10%" src="./../reports/images/307907344.png" data-src="./../reports/images/307907344.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:17 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:17 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:17 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:17 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:18 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:18 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:18 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:18 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:18 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:18 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:19 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:19 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:19 PM</td>
+													<td class='step-details'>The element : - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 is clicked.</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>9:50:19 PM</td>
+													<td class='step-details'>The data: 4 could not be entered in the field :[[ChromeDriver: chrome on WINDOWS (ae41a1ba2bc4e2e72e54d4b530e78449)] -&gt; xpath: //select[@data-id='0']]<img data-featherlight="./../reports/images/349014796.png" width="10%" src="./../reports/images/349014796.png" data-src="./../reports/images/349014796.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>9:50:20 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='19'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 10:07:44 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 10:07:44 PM</span>
+	<span class='label end-time'>Feb 26, 2021 10:07:52 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 8s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='20'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+69ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:07:52 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/905536642.png" width="10%" src="./../reports/images/905536642.png" data-src="./../reports/images/905536642.png"></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>10:07:52 PM</td>
+													<td class='step-details'>The element: OK could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:07:52 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='21'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 10:13:35 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 10:13:35 PM</span>
+	<span class='label end-time'>Feb 26, 2021 10:13:51 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='22'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+73ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:48 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/847103046.png" width="10%" src="./../reports/images/847103046.png" data-src="./../reports/images/847103046.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:49 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:49 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (ddbcc9a76418e725a85023a6ff7b3383)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/403596249.png" width="10%" src="./../reports/images/403596249.png" data-src="./../reports/images/403596249.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:49 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:49 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:50 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:50 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:50 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:50 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:50 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:50 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:50 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:50 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:51 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:51 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:51 PM</td>
+													<td class='step-details'>The element : - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:51 PM</td>
+													<td class='step-details'>The element :4 is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:51 PM</td>
+													<td class='step-details'>The element :Search is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:13:51 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='23'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 10:18:00 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 10:18:00 PM</span>
+	<span class='label end-time'>Feb 26, 2021 10:18:21 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 21s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='24'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+80ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:18 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/11911227.png" width="10%" src="./../reports/images/11911227.png" data-src="./../reports/images/11911227.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:18 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:19 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (b0f865e817cd790daebc4ef5ef71a3a3)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/785005293.png" width="10%" src="./../reports/images/785005293.png" data-src="./../reports/images/785005293.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:19 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:19 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:19 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:19 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:20 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:20 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:20 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:20 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:20 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:20 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:20 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:20 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:20 PM</td>
+													<td class='step-details'>The element : - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:21 PM</td>
+													<td class='step-details'>The element :4 is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:21 PM</td>
+													<td class='step-details'>The element :Search is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:18:21 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='25'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 10:31:29 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 10:31:29 PM</span>
+	<span class='label end-time'>Feb 26, 2021 10:31:37 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 8s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='26'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+90ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:37 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/371642390.png" width="10%" src="./../reports/images/371642390.png" data-src="./../reports/images/371642390.png"></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>10:31:37 PM</td>
+													<td class='step-details'>The element: OK could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:37 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='27'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 10:31:49 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 10:31:49 PM</span>
+	<span class='label end-time'>Feb 26, 2021 10:32:00 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 11s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='28'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+95ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:56 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/624439302.png" width="10%" src="./../reports/images/624439302.png" data-src="./../reports/images/624439302.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:56 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:57 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (4e3d0718fc5daccf274c991975702917)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/665106753.png" width="10%" src="./../reports/images/665106753.png" data-src="./../reports/images/665106753.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:57 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:57 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:57 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:57 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:58 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:58 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:58 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:58 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:58 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:58 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:58 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:31:58 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>10:32:00 PM</td>
+													<td class='step-details'>The element: - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:32:00 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='29'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 10:34:32 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 10:34:32 PM</span>
+	<span class='label end-time'>Feb 26, 2021 10:34:47 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 15s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='30'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+105ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:39 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/400308667.png" width="10%" src="./../reports/images/400308667.png" data-src="./../reports/images/400308667.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:39 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:40 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (f544a172320ef6eebdd9a6131e907313)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/579919851.png" width="10%" src="./../reports/images/579919851.png" data-src="./../reports/images/579919851.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:40 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:40 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:41 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:41 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:41 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:41 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:41 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:41 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:41 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:41 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:41 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:42 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>10:34:43 PM</td>
+													<td class='step-details'>The element: - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:34:47 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='31'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 10:35:39 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 10:35:39 PM</span>
+	<span class='label end-time'>Feb 26, 2021 10:36:17 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 38s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='32'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+111ms</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:14 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/108832394.png" width="10%" src="./../reports/images/108832394.png" data-src="./../reports/images/108832394.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:14 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:15 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (d2018b598795ee736fd4e3e543302242)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/860987526.png" width="10%" src="./../reports/images/860987526.png" data-src="./../reports/images/860987526.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:15 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:15 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:15 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:15 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:15 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:15 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:16 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:16 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:16 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:16 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:16 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:16 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:16 PM</td>
+													<td class='step-details'>The element : - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:16 PM</td>
+													<td class='step-details'>The element :4 is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:17 PM</td>
+													<td class='step-details'>The element :Apply is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:17 PM</td>
+													<td class='step-details'>The element :Search is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:36:17 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='33'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 10:42:21 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 10:42:21 PM</span>
+	<span class='label end-time'>Feb 26, 2021 10:42:37 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 16s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='34'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+116ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:29 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/529966100.png" width="10%" src="./../reports/images/529966100.png" data-src="./../reports/images/529966100.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:29 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:30 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (383f90766e145bc9a9e477ff3a72b250)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/131409132.png" width="10%" src="./../reports/images/131409132.png" data-src="./../reports/images/131409132.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:30 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:30 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:30 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:30 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:31 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:31 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:31 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:31 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:31 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:31 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:31 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:31 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>10:42:32 PM</td>
+													<td class='step-details'>The element: - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>10:42:37 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='35'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 11:23:41 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 11:23:41 PM</span>
+	<span class='label end-time'>Feb 26, 2021 11:23:59 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 18s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='36'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+121ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:51 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/362462584.png" width="10%" src="./../reports/images/362462584.png" data-src="./../reports/images/362462584.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:51 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:52 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (4edb8bf7f074f360eade60f635e42553)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/611004573.png" width="10%" src="./../reports/images/611004573.png" data-src="./../reports/images/611004573.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:52 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:52 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:53 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:53 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:53 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:53 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:53 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:53 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:53 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:53 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:53 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:54 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>11:23:55 PM</td>
+													<td class='step-details'>The element: - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:23:59 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='37'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 11:25:01 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 11:25:01 PM</span>
+	<span class='label end-time'>Feb 26, 2021 11:25:11 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 10s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='38'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+126ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:25:08 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/740795234.png" width="10%" src="./../reports/images/740795234.png" data-src="./../reports/images/740795234.png"></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>11:25:11 PM</td>
+													<td class='step-details'>The element: OK could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:25:11 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='39'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 11:26:57 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 11:26:57 PM</span>
+	<span class='label end-time'>Feb 26, 2021 11:27:07 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 10s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='40'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+129ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:04 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/754375326.png" width="10%" src="./../reports/images/754375326.png" data-src="./../reports/images/754375326.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:04 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:05 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (9b60f4b3ff827350eedc92f036b5b11d)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/152804227.png" width="10%" src="./../reports/images/152804227.png" data-src="./../reports/images/152804227.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:05 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:05 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:05 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:05 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:05 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:06 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:06 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:06 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:06 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:06 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:06 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:06 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>11:27:07 PM</td>
+													<td class='step-details'>The element: - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:27:07 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='41'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 11:29:41 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 11:29:41 PM</span>
+	<span class='label end-time'>Feb 26, 2021 11:29:51 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 10s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='42'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+133ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:29:50 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/317540686.png" width="10%" src="./../reports/images/317540686.png" data-src="./../reports/images/317540686.png"></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>11:29:51 PM</td>
+													<td class='step-details'>The element: OK could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:29:51 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='43'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 11:39:00 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 11:39:00 PM</span>
+	<span class='label end-time'>Feb 26, 2021 11:39:15 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 15s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='44'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 53s+136ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:08 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/884908894.png" width="10%" src="./../reports/images/884908894.png" data-src="./../reports/images/884908894.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:08 PM</td>
+													<td class='step-details'>The element :OK is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:08 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (a4de7a5bc0a2dab3d16e3c004f7159c0)] -&gt; xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight="./../reports/images/233731405.png" width="10%" src="./../reports/images/233731405.png" data-src="./../reports/images/233731405.png"></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:09 PM</td>
+													<td class='step-details'>The element :Check in is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:09 PM</td>
+													<td class='step-details'>The element :Tonight is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:09 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:09 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:09 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:09 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:09 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:10 PM</td>
+													<td class='step-details'>The element :next is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:10 PM</td>
+													<td class='step-details'>The element :1 Room is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:10 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:10 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:10 PM</td>
+													<td class='step-details'>The element :Add is clicked.</td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>11:39:11 PM</td>
+													<td class='step-details'>The element: - 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:39:15 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf fail' status='fail' bdd='false' test-id='45'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 11:41:45 PM</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 11:41:45 PM</span>
+	<span class='label end-time'>Feb 26, 2021 11:41:58 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 13s+0ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf fail' status='fail' test-id='46'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:44:38 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 2m 40s+141ms</span>
+						<span class='test-status right fail'>fail</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:41:52 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight="./../reports/images/68211255.png" width="10%" src="./../reports/images/68211255.png" data-src="./../reports/images/68211255.png"></td>
+												</tr>
+												<tr class='log' status='fail'>
+													<td class='status fail' title='fail' alt='fail'><i class='material-icons'>cancel</i></td>
+													<td class='timestamp'>11:41:54 PM</td>
+													<td class='step-details'>The element: OK could not be clicked</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:41:58 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+				
+				
+				<li class='test displayed active has-leaf pass' status='pass' bdd='false' test-id='47'>
+					<div class='test-heading'>
+						<span class='test-name'>S20-84</span>
+						<span class='test-time'>Feb 26, 2021 11:44:38 PM</span>
+						<span class='test-status right pass'>pass</span>
+					</div>
+					<div class='test-content hide'>
+<div class='test-time-info'>
+	<span class='label start-time'>Feb 26, 2021 11:44:38 PM</span>
+	<span class='label end-time'>Feb 26, 2021 11:45:15 PM</span>
+	<span class='label time-taken grey lighten-1 white-text'>0h 0m 37s+635ms</span>
+</div>
+	<div class='test-desc'>Automation For New Payment </div>
+	<ul class='collapsible node-list' data-collapsible='accordion'>
+		
+				<li class='node level-1 leaf pass' status='pass' test-id='48'>
+					<div class='collapsible-header'>
+						<h5 class='node-name'>Test</h5>
+						<span class="node-time label grey lighten-1 white-text">Feb 26, 2021 11:45:15 PM</span>
+						<span class='node-duration label grey lighten-1 white-text'>0h 0m 37s+623ms</span>
+						<span class='test-status right pass'>pass</span>
+								<span class='category label white-text'>Testing</span>
+								<span class='author label white-text'>Prabananth</span>
+					</div>
+						<div class='collapsible-body'>
+								<div class='node-steps'>
+									<table class='bordered table-results'>
+										<thead>
+											<tr>
+												<th>Status</th>
+												<th>Timestamp</th>
+												<th>Details</th>
+											</tr>
+										</thead>
+										<tbody>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:12 PM</td>
+													<td class='step-details'>The browser: chrome launched successfully<img data-featherlight='./../reports/images/34635933.png' width='10%' src='./../reports/images/34635933.png' data-src='./../reports/images/34635933.png'></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:13 PM</td>
+													<td class='step-details'>The element :OK  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:13 PM</td>
+													<td class='step-details'>The data: Agra entered successfully in the field :[[ChromeDriver: chrome on WINDOWS (70e2675c094714f0b71cd72d078a47c6)] -> xpath: //input[@placeholder='Enter a hotel name or destination']]<img data-featherlight='./../reports/images/741940784.png' width='10%' src='./../reports/images/741940784.png' data-src='./../reports/images/741940784.png'></td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:13 PM</td>
+													<td class='step-details'>The element :Check in  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:13 PM</td>
+													<td class='step-details'>The element :Tonight  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:14 PM</td>
+													<td class='step-details'>The element :next  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:14 PM</td>
+													<td class='step-details'>The element :next  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:14 PM</td>
+													<td class='step-details'>The element :next  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:14 PM</td>
+													<td class='step-details'>The element :next  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:14 PM</td>
+													<td class='step-details'>The element :next  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:14 PM</td>
+													<td class='step-details'>The element :next  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:14 PM</td>
+													<td class='step-details'>The element :1 Room  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:14 PM</td>
+													<td class='step-details'>The element :Add  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:14 PM</td>
+													<td class='step-details'>The element :Add  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:14 PM</td>
+													<td class='step-details'>The element :Add  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:15 PM</td>
+													<td class='step-details'>The element :4  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:15 PM</td>
+													<td class='step-details'>The element :Apply  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:15 PM</td>
+													<td class='step-details'>The element :Search  is clicked.</td>
+												</tr>
+												<tr class='log' status='pass'>
+													<td class='status pass' title='pass' alt='pass'><i class='material-icons'>check_circle</i></td>
+													<td class='timestamp'>11:45:15 PM</td>
+													<td class='step-details'>The browser is closed</td>
+												</tr>
+										</tbody>
+									</table>
+								</div>
+						</div>
+				</li>
+	</ul>
+					</div>
+				</li>
+			</ul>
+		</div>
+	</div>
+	<!-- subview left -->
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='test-name'></h5>
+
+			<div id='step-filters' class="right">
+				<span class="blue-text" status="info" alt="info" title="info"><i class="material-icons">info_outline</i></span>
+				<span class="green-text" status="pass" alt="pass" title="pass"><i class="material-icons">check_circle</i></span>
+				<span class="red-text" status="fail" alt="fail" title="fail"><i class="material-icons">cancel</i></span>
+				<span class="red-text text-darken-4" status="fatal" alt="fatal" title="fatal"><i class="material-icons">cancel</i></span>
+				<span class="pink-text text-lighten-1" status="error" alt="error" title="error"><i class="material-icons">error</i></span>
+				<span class="orange-text" alt="warning" status="warning" title="warning"><i class="material-icons">warning</i></span>
+				<span class="teal-text" status="skip" alt="skip" title="skip"><i class="material-icons">redo</i></span>
+				<span status="clear" alt="Clear filters" title="Clear filters"><i class="material-icons">clear</i></span>
+			</div>
+		</div>
+	</div>
+	<!-- subview right -->
+
+</div>
+<!-- test view -->
+<div id='category-view' class='view hide'>
+
+	<section id='controls'>
+		<div class='controls grey lighten-4'>
+			<!-- search -->
+			<div class='chip transparent' alt='Search Tests' title='Search Tests'>
+				<a href="#" class='search-div'>
+					<i class='material-icons'>search</i> Search
+				</a>
+				
+				<div class='input-field left hide'>
+					<input id='search-tests' type='text' class='validate browser-default' placeholder='Search Tests...'>
+				</div>
+				
+			</div>
+			<!-- search -->
+		</div>
+	</section>
+
+	<div class='subview-left left'>
+		
+		<div class='view-summary'>
+			<h5>Categories</h3>
+			<ul id='category-collection' class='category-collection'>
+				
+				<li class='category displayed active'>
+					<div class='category-heading'>
+						<span class='category-name'>Testing</span>
+						<span class='category-status right'>
+							<span class='label pass'>1</span>
+						</span>
+					</div>
+					<div class='category-content hide'>
+						<div class='category-status-counts'>
+							<span class='label green accent-4 white-text'>Passed: 1</span>
+							
+							
+						</div>
+					
+						<div class='category-tests'>
+							<table class='bordered table-results'>
+								<thead>
+									<tr>
+										<th>Timestamp</th>
+										<th>TestName</th>
+										<th>Status</th>
+									</tr>
+								</thead>
+								<tbody>
+									<tr>
+										<td>Feb 26, 2021 11:44:38 PM</td>
+										<td class='linked' test-id='48'>S20-84.Test</td>
+										<td><span class='test-status pass'>pass</span></td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+				</li>
+
+			</ul>
+		</div>
+	</div>
+
+	<div class='subview-right left'>
+		<div class='view-summary'>
+			<h5 class='category-name'></h5>
+		</div>
+	</div>
+</div>
+<!-- category view -->
+<div id='author-view' class='view hide'>
+    <section id='controls'>
+        <div class='controls grey lighten-4'>
+            <!-- search -->
+            <div class='chip transparent' alt='Search Authors' title='Search Authors'>
+                <a href="#" class='search-div'>
+                    <i class='material-icons'>search</i> Search
+                </a>
+
+                <div class='input-field left hide'>
+                    <input id='search-tests' type='text' class='validate browser-default' placeholder='Search Authors...'>
+                </div>
+
+            </div>
+            <!-- search -->
+        </div>
+    </section>
+
+    <div class='subview-left left'>
+
+        <div class='view-summary'>
+            <h5>Authors</h5>
+                <ul id='author-collection' class='author-collection'>
+
+                        <li class='author displayed active'>
+                            <div class='author-heading'>
+                                <span class='author-name'>Prabananth</span>
+                                <span class='author-status right'>
+                                        <span class='label pass'>1</span>
+						        </span>
+                            </div>
+                            <div class='author-content hide'>
+                                <div class='author-status-counts'>
+                                    <span class='label green accent-4 white-text'>Passed: 1</span>
+                                    
+                                    
+                                </div>
+
+                                <div class='author-tests'>
+                                    <table class='bordered table-results'>
+                                        <thead>
+                                        <tr>
+                                            <th>Timestamp</th>
+                                            <th>TestName</th>
+                                            <th>Status</th>
+                                        </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>Feb 26, 2021 11:44:38 PM</td>
+                                                <td class='linked' test-id='48'>S20-84.Test</td>
+                                                <td><span class='test-status pass'>pass</span></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </li>
+
+                </ul>
+        </div>
+    </div>
+
+    <div class='subview-right left'>
+        <div class='view-summary'>
+            <h5 class='author-name'></h5>
+        </div>
+    </div>
+</div>
+<!-- exception view -->
+<div id='dashboard-view' class='view hide'>
+	<div class='card-panel transparent np-v'>
+		<h5>Dashboard</h5>
+
+		<div class='row'>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Tests
+					<div class='panel-lead'>24</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Steps
+					<div class='panel-lead'>269</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Start
+					<div class='panel-lead'>Feb 26, 2021 11:44:37 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+			 		End
+			 		<div class='panel-lead'>Feb 26, 2021 11:45:15 PM</div>
+				</div>
+			</div>
+			<div class='col s2'>
+				<div class='card-panel r'>
+					Time Taken
+					<div class='panel-lead'>0h 0m 38s+136ms</div>
+				</div>
+			</div>
+			<div class='col s6'>
+				<div class='card-panel dashboard-categories'>
+					<span class='right label cyan white-text'>Categories</span><p>&nbsp;</p>
+					
+					<table>
+						<tr>
+							<th>Name</th>
+							<th>Passed</th>
+							<th>Failed</th>
+							<th>Others</th>
+							<th>Passed %</th>
+						</tr>
+						<tr>
+							<td>Testing</td>
+							<td>1</td>
+							<td>0</td>
+							<td>0</td>
+							<td>
+									100%
+							</td>
+						</tr>
+					</table>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- dashboard view -->
+<!-- testrunner-logs view -->
+		</div>
+		<!-- container -->
+
+		<script>
+			var statusGroup = {
+				passParent: 5,
+				failParent: 19,
+				fatalParent: 0,
+				errorParent: 0,
+				warningParent: 0,
+				skipParent: 0,
+				exceptionsParent: 19,
+				
+				passChild: 250,
+				failChild: 19,
+				fatalChild: 0,
+				errorChild: 0,
+				warningChild: 0,
+				skipChild: 0,
+				infoChild: 0,
+				exceptionsChild: 19,
+				
+				passGrandChild: 0,
+				failGrandChild: 0,
+				fatalGrandChild: 0,
+				errorGrandChild: 0,
+				warningGrandChild: 0,
+				skipGrandChild: 0,
+				infoGrandChild: 0,
+				exceptionsGrandChild: 0,
+			};
+		</script>
+		
+			<script src='https://cdn.rawgit.com/anshooarora/extentreports-java/fca20fb7653aade98810546ab96a2a4360e3e712/dist/js/extent.js' type='text/javascript'></script>
+		
+		
+ 		<script type='text/javascript'>
+ 			
+      
+        $(document).ready(function() {
+          
+        });
+      
+    
+ 		</script>
+	</body>
+	
+</html>
