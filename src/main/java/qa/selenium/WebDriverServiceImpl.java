@@ -371,7 +371,6 @@ public class WebDriverServiceImpl extends WebDriverListener implements WebDriver
 		return text;
 	}
 
-
 	public void closeActiveBrowser() {
 		try {
 			driver.close();
